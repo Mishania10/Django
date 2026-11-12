@@ -31,7 +31,7 @@ MIDDLEWARE = [                                     # промежуточные 
     "django.contrib.messages.middleware.MessageMiddleware",    # messages framework
 ]
 
-ROOT_URLCONF = "config.urls"                       # где лежит корневой urls.py
+ROOT_URLCONF = "djangoproject5.urls"                  # где лежит корневой urls.py
 
 TEMPLATES = [                                      # настройки шаблонов
     {

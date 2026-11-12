@@ -62,14 +62,14 @@ DATABASES = {                                      # настройки БД
     }
 }
 
-CACHES = {                                         # кэш через Redis
+CACHES = {
     "default": {
-        "BACKEND": "django.core.cache.backends.redis.RedisCache",  # встроенный Redis-бэкенд
-        "LOCATION": os.getenv("REDIS_URL"),        # адрес Redis
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
     }
 }
 
-SESSION_ENGINE = "django.contrib.sessions.backends.cache"  # сессии - в Redis
+SESSION_ENGINE = "django.contrib.sessions.backends.db"
+
 SESSION_CACHE_ALIAS = "default"                            # какой кэш использовать
 
 LANGUAGE_CODE = "ru-ru"                            # русский язык

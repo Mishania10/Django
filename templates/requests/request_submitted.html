@@ -1,0 +1,11 @@
+{% extends 'requests/base.html' %}
+{% block title %}Обращение зарегистрировано{% endblock %}
+{% block content %}
+<section class="card">
+  <h1>Обращение зарегистрировано</h1>
+  <p class="muted">Заявка <strong>№{{ ticket.pk }}</strong> сохранена. Текущий статус: <span class="badge">{{ ticket.get_status_display }}</span></p>
+  <p><strong>{{ ticket.title }}</strong></p>
+  <p class="muted">Сохраните номер обращения. Посмотреть свои заявки можно в разделе «Мои обращения» в этом браузере.</p>
+  <div class="actions"><a class="button" href="{% url 'my_requests' %}">Мои обращения</a><a class="button secondary" href="{% url 'create_request' %}">Создать ещё</a></div>
+</section>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'requests/base.html' %}
+{% block title %}Обращение №{{ ticket.pk }}{% endblock %}
+{% block content %}
+<section class="card">
+  <h1>Обращение №{{ ticket.pk }}</h1>
+  <p><span class="badge">{{ ticket.get_status_display }}</span></p>
+  <dl>
+    <dt>Тема</dt><dd>{{ ticket.title }}</dd>
+    <dt>Категория</dt><dd>{{ ticket.get_category_display }}</dd>
+    <dt>Приоритет</dt><dd>{{ ticket.get_priority_display }}</dd>
+    <dt>Создано</dt><dd>{{ ticket.created_at|date:'d.m.Y H:i' }}</dd>
+    <dt>Описание</dt><dd>{{ ticket.description|linebreaksbr }}</dd>
+  </dl>
+  <div class="actions"><a class="button secondary" href="{% url 'my_requests' %}">Назад к обращениям</a></div>
+</section>
+{% endblock %}

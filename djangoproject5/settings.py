@@ -19,7 +19,8 @@ INSTALLED_APPS = [                                 # список подключ
     "django.contrib.messages",                     # всплывающие сообщения
     "django.contrib.staticfiles",                  # статика (css/js)
     'apps.accounts',
-    'apps.catalog'
+    'apps.catalog',
+    'apps.requests',
 ]
 
 MIDDLEWARE = [                                     # промежуточные слои между запросом и ответом
@@ -50,6 +51,9 @@ TEMPLATES = [                                      # настройки шабл
 
 WSGI_APPLICATION = "djangoproject5.wsgi.application"      # точка входа для сервера
 AUTH_USER_MODEL = 'accounts.User'
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'my_requests'
+LOGOUT_REDIRECT_URL = 'create_request'
 
 DATABASES = {                                      # настройки БД
     "default": {

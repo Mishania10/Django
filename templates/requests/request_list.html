@@ -1,0 +1,17 @@
+{% extends 'requests/base.html' %}
+{% block title %}Мои обращения{% endblock %}
+{% block content %}
+<section class="card">
+  <h1>Мои обращения</h1>
+  <p class="muted">Здесь отображаются заявки, созданные из этой учётной записи или сессии браузера.</p>
+  {% for ticket in tickets %}
+    <div class="ticket">
+      <a href="{% url 'request_detail' ticket.pk %}">№{{ ticket.pk }} · {{ ticket.title }}</a>
+      <p class="muted">{{ ticket.created_at|date:'d.m.Y H:i' }} · {{ ticket.get_category_display }} · <span class="badge">{{ ticket.get_status_display }}</span></p>
+    </div>
+  {% empty %}
+    <p class="muted">Пока нет обращений. Создайте первое — оно появится здесь.</p>
+  {% endfor %}
+  <div class="actions"><a class="button" href="{% url 'create_request' %}">Новое обращение</a></div>
+</section>
+{% endblock %}

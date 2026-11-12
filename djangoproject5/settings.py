@@ -48,7 +48,7 @@ TEMPLATES = [                                      # настройки шабл
     },
 ]
 
-WSGI_APPLICATION = "config.wsgi.application"       # точка входа для сервера
+WSGI_APPLICATION = "djangoproject5.wsgi.application"      # точка входа для сервера
 AUTH_USER_MODEL = 'accounts.User'
 
 DATABASES = {                                      # настройки БД
